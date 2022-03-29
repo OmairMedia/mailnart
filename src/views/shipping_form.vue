@@ -1,6 +1,13 @@
 <template>
   <home-layout>
-    <b-container class="section shipping-form">
+    <b-navbar class="py-2" toggleable="lg" type="dark" variant="light">
+      <b-container>
+        <b-navbar-brand class="mx-auto" href="https://ad-wize.com/mailnart/">
+          <b-img src="assets/logos/logo.png" fluid></b-img>
+        </b-navbar-brand>
+      </b-container>
+    </b-navbar>
+    <b-container class="mt-4 section shipping-form">
       <div class="top-options">
         <div class="way">
           <b-dropdown
@@ -13,7 +20,7 @@
             no-caret
           >
             <template slot="button-content">
-              <b-button
+              <b-button class="m-0"
                 >{{ shipping.trip_type }}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

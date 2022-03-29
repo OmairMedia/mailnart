@@ -18,7 +18,7 @@ import "./main";
 /* if you want single color remove this section:multicolor */
 var color = getThemeColor();
 let render = () => {
-  import("./assets/css/sass/themes/piaf." + color + ".scss").then(() =>
+  import("./assets/css/sass/themes/piaf.light.redruby.scss").then(() =>
     require("./main")
   );
 };
