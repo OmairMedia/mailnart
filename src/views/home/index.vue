@@ -109,7 +109,7 @@
             <div class="container">
               <div class="row home-row" id="homeRow">
                 <div class="col-12 d-block d-md-none">
-                  <router-link href="/shipping/step-1" target="_blank">
+                  <router-link to="/shipping/step-1" target="_blank">
                     <img
                       alt="mobile hero"
                       class="mobile-hero"
@@ -133,14 +133,13 @@
                       <br />
                       <br />Hope you enjoy it!
                     </p>
-                    <a
+                    <router-link
                       class="btn btn-light btn-xl mr-2 mb-2"
-                      :href="adminRoot"
-                      target="_blank"
+                      to="/shipping/step-1"
                     >
                       VIEW NOW
                       <i class="simple-icon-arrow-right"></i>
-                    </a>
+                    </router-link>
                   </div>
                 </div>
                 <div
@@ -151,7 +150,7 @@
                     d-none d-md-block
                   "
                 >
-                  <router-link to="/shipping/step-1" target="_blank">
+                  <router-link to="/shipping/step-1">
                     <img
                       alt="hero"
                       src="/assets/img/landing-page/home-hero.png"
