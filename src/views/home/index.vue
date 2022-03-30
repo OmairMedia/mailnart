@@ -109,13 +109,13 @@
             <div class="container">
               <div class="row home-row" id="homeRow">
                 <div class="col-12 d-block d-md-none">
-                  <a :href="adminRoot" target="_blank">
+                  <router-link href="/shipping/step-1" target="_blank">
                     <img
                       alt="mobile hero"
                       class="mobile-hero"
                       src="/assets/img/landing-page/home-hero-mobile.png"
                     />
-                  </a>
+                  </router-link>
                 </div>
 
                 <div class="col-12 col-xl-4 col-lg-5 col-md-6">
@@ -151,12 +151,12 @@
                     d-none d-md-block
                   "
                 >
-                  <a :href="adminRoot" target="_blank">
+                  <router-link to="/shipping/step-1" target="_blank">
                     <img
                       alt="hero"
                       src="/assets/img/landing-page/home-hero.png"
                     />
-                  </a>
+                  </router-link>
                 </div>
               </div>
 
