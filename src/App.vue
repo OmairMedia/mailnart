@@ -10,6 +10,7 @@ export default {
   components: {},
   beforeMount() {
     const direction = getDirection();
+    document.body.classList.add("rounded");
     if (direction.isRtl) {
       document.body.classList.add("rtl");
       document.dir = "rtl";

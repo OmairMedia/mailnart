@@ -155,13 +155,13 @@
       @include respond-below(lg) {
         height: $navbar-height-md;
         .navbar-logo {
-          width: 100px;
-          height: 30px;
+          width: 150px;
+          height: 80px;
 
           .white,
           .dark {
-            width: 100px;
-            height: 30px;
+            width: 150px;
+            height: 80px;
           }
         }
       }
@@ -177,22 +177,27 @@
     }
 
     .navbar-logo {
-      width: 120px;
-      height: 40px;
+      width: 150px;
+      height: 80px;
 
       .white {
         display: inline-block;
-        width: 120px;
-        height: 40px;
+        width: 150px;
+        height: 80px;
         background: url($lp-logo-path);
         background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
       }
 
       .dark {
-        width: 120px;
-        height: 40px;
+        width: 150px;
+        height: 80px;
         background: url($lp-logo-path-pinned);
         background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+
         display: none;
       }
     }

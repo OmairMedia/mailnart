@@ -10,11 +10,31 @@ const routes = [
   {
     path: "/",
     component: () => import(/* webpackChunkName: "home" */ "./views/home"),
-    redirect: `/shipping`,
+
   },
   {
-    path: "/shipping",
-    component: () => import(/* webpackChunkName: "home" */ "./views/shipping_form.vue"),
+    path: "/shipping/step-1",
+    component: () => import(/* webpackChunkName: "home" */ "./views/shipping_form_step_1.vue"),
+    // redirect: `${adminRoot}/piaf`,
+  },
+  {
+    path: "/shipping/step-2",
+    component: () => import(/* webpackChunkName: "home" */ "./views/shipping_form_step_2.vue"),
+    // redirect: `${adminRoot}/piaf`,
+  },
+  {
+    path: "/shipping/step-3",
+    component: () => import(/* webpackChunkName: "home" */ "./views/shipping_form_step_3.vue"),
+    // redirect: `${adminRoot}/piaf`,
+  },
+  {
+    path: "/shipping/step-4",
+    component: () => import(/* webpackChunkName: "home" */ "./views/shipping_form_step_4.vue"),
+    // redirect: `${adminRoot}/piaf`,
+  },
+  {
+    path: "/shipping/step-5",
+    component: () => import(/* webpackChunkName: "home" */ "./views/shipping_form_step_5.vue"),
     // redirect: `${adminRoot}/piaf`,
   },
   {

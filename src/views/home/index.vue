@@ -458,7 +458,7 @@
                     <img
                       class="footer-logo"
                       alt="footer logo"
-                      src="/assets/logos/white-full.svg"
+                      src="/assets/logos/logo.png"
                     />
                   </a>
                 </div>
@@ -468,7 +468,7 @@
               <div class="row">
                 <div class="col-12"></div>
                 <div class="col-12 text-center">
-                  <p class="mb-0">2020 © ColoredStrategies</p>
+                  <p class="mb-0">{{ getCurrentYear }} © MailNArt</p>
                 </div>
               </div>
             </div>
@@ -707,6 +707,13 @@ export default {
 
     scrollTo(target) {
       VueScrollTo.scrollTo(target, 200, scrollOptions);
+    },
+  },
+  computed: {
+    getCurrentYear() {
+      const date = new Date();
+      const year = date.getFullYear();
+      return year;
     },
   },
   mounted() {

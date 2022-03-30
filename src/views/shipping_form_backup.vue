@@ -2,7 +2,7 @@
   <home-layout>
     <b-navbar class="py-2" toggleable="lg" type="dark" variant="light">
       <b-container>
-        <b-navbar-brand class="mx-auto" href="https://ad-wize.com/mailnart/">
+        <b-navbar-brand class="" to="/">
           <b-img src="assets/logos/logo.png" fluid></b-img>
         </b-navbar-brand>
       </b-container>
