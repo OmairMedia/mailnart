@@ -118,7 +118,7 @@
             <b-col lg="3" md="3" sm="6">
               <b-form-group label="Length (in)" class="has-float-label">
                 <b-form-input
-                  v-model="length"
+                  v-model="dimensions.length"
                   class="mb-2"
                   type="number"
                   min="0"
@@ -128,7 +128,7 @@
             <b-col lg="3" md="3" sm="6">
               <b-form-group label="Width (in)" class="has-float-label">
                 <b-form-input
-                  v-model="width"
+                  v-model="dimensions.width"
                   class="mb-2"
                   type="number"
                   min="0"
@@ -138,7 +138,7 @@
             <b-col lg="3" md="3" sm="6">
               <b-form-group label="Height (in)" class="has-float-label">
                 <b-form-input
-                  v-model="height"
+                  v-model="dimensions.height"
                   class="mb-2"
                   type="number"
                   min="0"
@@ -148,7 +148,7 @@
             <b-col lg="3" md="3" sm="6">
               <b-form-group label="Weight (lbs)" class="has-float-label">
                 <b-form-input
-                  v-model="weight"
+                  v-model="dimensions.weight"
                   class="mb-2"
                   type="number"
                   min="0"
@@ -208,10 +208,10 @@ export default {
     };
   },
   computed: {
-    getUserFrom() {
+    getFrom() {
       try {
         const from =
-          sessionStorage.getItem("user_from") != null
+          sessionStorage.getItem("from") != null
             ? JSON.parse(sessionStorage.getItem("from"))
             : null;
         return from;
@@ -220,10 +220,10 @@ export default {
         return null;
       }
     },
-    getUserTo() {
+    getTo() {
       try {
         const from =
-          sessionStorage.getItem("user_to") != null
+          sessionStorage.getItem("to") != null
             ? JSON.parse(sessionStorage.getItem("to"))
             : null;
         return from;
@@ -236,8 +236,8 @@ export default {
   methods: {
     saveDataOnSessionStorage() {
       try {
-        sessionStorage.setItem("user_from", JSON.stringify(this.from));
-        sessionStorage.setItem("user_to", JSON.stringify(this.to));
+        sessionStorage.setItem("from", JSON.stringify(this.from));
+        sessionStorage.setItem("to", JSON.stringify(this.to));
         sessionStorage.setItem("dimensions", JSON.stringify(this.dimensions));
 
         this.$router.push("/shipping/step-2");

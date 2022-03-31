@@ -17,6 +17,7 @@
     "core-js": "^3.8.2",
     "firebase": "^8.2.3",
     "v-contextmenu": "^2.9.0",
+    "vee-validate": "^3.4.14",
     "video.js": "^7.10.2",
     "vue": "^2.6.12",
     "vue-autosuggest": "^2.2.0",

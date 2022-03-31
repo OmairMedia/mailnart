@@ -48,14 +48,19 @@ const routes = [
    */
     children: [
       {
-        path: "piaf",
+        path: "dashboard",
         component: () =>
-          import(/* webpackChunkName: "piaf" */ "./views/app/piaf"),
-        redirect: `${adminRoot}/piaf/start`,
+          import(/* webpackChunkName: "piaf" */ "./views/app/dashboard"),
+        redirect: `${adminRoot}/dashboard/account`,
         children: [
           {
-            path: 'start',
-            component: () => import(/* webpackChunkName: "piaf" */ './views/app/piaf/Start')
+            path: 'account',
+            component: () => import(/* webpackChunkName: "piaf" */ './views/app/dashboard/Account')
+            // meta: { roles: [UserRole.Admin, UserRole.Editor] },
+          },
+          {
+            path: 'orders',
+            component: () => import(/* webpackChunkName: "piaf" */ './views/app/dashboard/Orders')
             // meta: { roles: [UserRole.Admin, UserRole.Editor] },
           }
         ]
