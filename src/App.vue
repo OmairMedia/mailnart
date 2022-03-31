@@ -7,7 +7,6 @@
 <script>
 import { getDirection } from "./utils";
 export default {
-  components: {},
   beforeMount() {
     const direction = getDirection();
     document.body.classList.add("rounded");

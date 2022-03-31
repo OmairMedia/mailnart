@@ -43,7 +43,6 @@
               ></b-form-input>
             </b-col>
             <b-col lg="6" md="6" sm="6">
-              <gmap-autocomplete></gmap-autocomplete>
               <b-form-input
                 class="mb-2"
                 v-model="from.address"
@@ -169,22 +168,20 @@
 
 <script>
 import Vue from "vue";
-import * as GmapVue from "gmap-vue";
+// import * as GmapVue from "gmap-vue";
 
-const googleOptions = {
-  load: {
-    key: "AIzaSyBtmA2MsfljS60NA3c_ljiVXC5gvv8TIFg",
-    v: "3.46",
-    libraries: "places",
-  },
-  installComponents: true,
-};
-Vue.use(GmapVue, googleOptions);
+// const googleOptions = {
+//   load: {
+//     key: "AIzaSyBtmA2MsfljS60NA3c_ljiVXC5gvv8TIFg",
+//     v: "3.46",
+//     libraries: "places",
+//   },
+//   installComponents: true,
+// };
+// Vue.use(GmapVue, googleOptions);
 
 export default {
-  components: {
-    "gmap-autocomplete": GmapVue.components.Autocomplete,
-  },
+  components: {},
   data() {
     return {
       from: {
