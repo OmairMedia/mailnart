@@ -102,15 +102,34 @@
               </svg>
             </div>
             <b-collapse id="collapse-1" class="mt-2">
-              <p class="p-0 m-0">Ship From: {{ getShippingFrom.address }}</p>
-              <p class="p-0 m-0">Ship To: {{ getShippingTo.address }}</p>
+              <div v-if="getShippingFrom">
+                <h6>Ship From:</h6>
+                <p class="p-0 m-0">
+                  {{ getShippingFrom.address || "Data Not Given" }}
+                </p>
+              </div>
+              <div v-else>
+                <p>Ship From : Data Not Given</p>
+              </div>
+              <div v-if="getShippingTo">
+                <h6>Ship To:</h6>
+                <p class="p-0 m-0">
+                  {{ getShippingTo.address || "Data Not Given" }}
+                </p>
+              </div>
+              <div v-else>
+                <p>Ship To : Data Not Given</p>
+              </div>
 
-              <h4>Dimensions:</h4>
-              <p class="p-0 m-0">
-                {{ getDimensions.length }} x {{ getDimensions.width }} x
-                {{ getDimensions.height }}
-                - {{ getDimensions.weight }}
-              </p>
+              <div v-if="getDimensions">
+                <h4>Dimensions:</h4>
+                <p class="p-0 m-0">
+                  {{ getDimensions.length || "Data Not Given" }} x
+                  {{ getDimensions.width || "Data Not Given" }} x
+                  {{ getDimensions.height || "Data Not Given" }}
+                  - {{ getDimensions.weight || "Data Not Given" }}
+                </p>
+              </div>
 
               <h4>Delivery:</h4>
               <p class="p-0 m-0">Mon Apr 4, 2022 -Thu Apr 7, 2022</p>
@@ -164,7 +183,7 @@ export default {
     getShippingFrom() {
       try {
         const from =
-          sessionStorage.getItem("user_from") != null
+          sessionStorage.getItem("from") != null
             ? JSON.parse(sessionStorage.getItem("user_from"))
             : null;
         return from;
@@ -176,7 +195,7 @@ export default {
     getShippingTo() {
       try {
         const from =
-          sessionStorage.getItem("user_to") != null
+          sessionStorage.getItem("to") != null
             ? JSON.parse(sessionStorage.getItem("user_to"))
             : null;
         return from;
@@ -212,16 +231,6 @@ export default {
   },
   mounted() {
     try {
-      const user_from =
-        sessionStorage.getItem("user_from") != null
-          ? JSON.parse(sessionStorage.getItem("user_from"))
-          : null;
-
-      const user_to =
-        sessionStorage.getItem("user_to") != null
-          ? JSON.parse(sessionStorage.getItem("user_to"))
-          : null;
-
       const dimensions =
         sessionStorage.getItem("dimensions") != null
           ? JSON.parse(sessionStorage.getItem("dimensions"))
