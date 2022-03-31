@@ -9,61 +9,106 @@
     </b-navbar>
 
     <b-container class="p-5 mt-4 section shipping-form">
-      <div class="top-options mb-4">
+      <div class="top-options">
         <h2>Step-2</h2>
       </div>
 
       <b-card class="ship-from mb-4">
-        <b-form-group label="Dimensions">
+        <b-form-group label="Ship From">
           <b-row>
-            <!-- <b-col lg="4" md="4" sm="6">
-              <b-form-group label="Dimensions"> </b-form-group>
-            </b-col> -->
-            <b-col lg="3" md="3" sm="6">
-              <b-form-group label="Length (in)" class="has-float-label">
-                <b-form-input
-                  v-model="length"
-                  class="mb-2"
-                  type="number"
-                  min="0"
-                ></b-form-input>
-              </b-form-group>
+            <b-col lg="4" md="4" sm="6">
+              <b-form-input
+                v-model="from.name"
+                class="mb-2"
+                type="text"
+                placeholder="Name"
+              ></b-form-input>
             </b-col>
-            <b-col lg="3" md="3" sm="6">
-              <b-form-group label="Width (in)" class="has-float-label">
-                <b-form-input
-                  v-model="width"
-                  class="mb-2"
-                  type="number"
-                  min="0"
-                ></b-form-input>
-              </b-form-group>
+            <b-col lg="4" md="4" sm="6">
+              <b-form-input
+                class="mb-2"
+                v-model="from.email"
+                type="text"
+                placeholder="Email"
+              ></b-form-input>
             </b-col>
-            <b-col lg="3" md="3" sm="6">
-              <b-form-group label="Height (in)" class="has-float-label">
-                <b-form-input
-                  v-model="height"
-                  class="mb-2"
-                  type="number"
-                  min="0"
-                ></b-form-input>
-              </b-form-group>
+            <b-col lg="4" md="4" sm="6">
+              <b-form-input
+                class="mb-2"
+                v-model="from.phone"
+                type="text"
+                placeholder="Phone"
+              ></b-form-input>
             </b-col>
-            <b-col lg="3" md="3" sm="6">
-              <b-form-group label="Weight (lbs)" class="has-float-label">
-                <b-form-input
-                  v-model="weight"
-                  class="mb-2"
-                  type="number"
-                  min="0"
-                ></b-form-input>
-              </b-form-group>
+            <b-col lg="6" md="6" sm="6">
+              <b-form-input
+                class="mb-2"
+                v-model="from.address"
+                type="text"
+                placeholder="Address"
+              ></b-form-input>
+            </b-col>
+            <b-col lg="6" md="6" sm="6">
+              <b-form-input
+                class="mb-2"
+                v-model="from.zipcode"
+                type="text"
+                placeholder="Zip Code"
+              ></b-form-input>
+            </b-col>
+            <b-col lg="12" md="12" sm="12"> </b-col>
+          </b-row>
+        </b-form-group>
+      </b-card>
+
+      <b-card class="ship-to mb-4">
+        <b-form-group label="Ship To">
+          <b-row>
+            <b-col lg="4" md="4" sm="6">
+              <b-form-input
+                class="mb-2"
+                v-model="to.name"
+                type="text"
+                placeholder="Name"
+              ></b-form-input>
+            </b-col>
+            <b-col lg="4" md="4" sm="6">
+              <b-form-input
+                class="mb-2"
+                v-model="to.email"
+                type="text"
+                placeholder="Email"
+              ></b-form-input>
+            </b-col>
+            <b-col lg="4" md="4" sm="6">
+              <b-form-input
+                class="mb-2"
+                v-model="to.phone"
+                type="text"
+                placeholder="Phone"
+              ></b-form-input>
+            </b-col>
+            <b-col lg="6" md="6" sm="6">
+              <b-form-input
+                class="mb-2"
+                v-model="to.address"
+                type="text"
+                placeholder="Address"
+              ></b-form-input>
+            </b-col>
+            <b-col lg="6" md="6" sm="6">
+              <b-form-input
+                class="mb-2"
+                v-model="to.zipcode"
+                type="text"
+                placeholder="Zip Code"
+              ></b-form-input>
             </b-col>
           </b-row>
         </b-form-group>
       </b-card>
 
-      <b-button class="" @click="saveDataOnSessionStorage">Proceed</b-button>
+      <b-button @click="saveDataOnSessionStorage">Proceed</b-button>
     </b-container>
   </div>
 </template>
@@ -73,11 +118,20 @@ export default {
   components: {},
   data() {
     return {
-      length: "",
-      width: "",
-      height: "",
-      weight: "",
-      decided_value: "",
+      from: {
+        name: "",
+        email: "",
+        phone: "",
+        address: "",
+        zipcode: "",
+      },
+      to: {
+        name: "",
+        email: "",
+        phone: "",
+        address: "",
+        zipcode: "",
+      },
     };
   },
   computed: {
@@ -109,13 +163,8 @@ export default {
   methods: {
     saveDataOnSessionStorage() {
       try {
-        let dimensions = {
-          length: this.length,
-          width: this.width,
-          height: this.height,
-          weight: this.weight,
-        };
-        sessionStorage.setItem("dimensions", JSON.stringify(dimensions));
+        sessionStorage.setItem("from", JSON.stringify(this.from));
+        sessionStorage.setItem("to", JSON.stringify(this.to));
 
         this.$router.push("/shipping/step-3");
       } catch (error) {

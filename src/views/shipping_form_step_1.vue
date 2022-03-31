@@ -108,7 +108,59 @@
         </b-form-group>
       </b-card>
 
-      <b-button @click="saveDataOnSessionStorage">Proceed</b-button>
+      <b-card class="dimensions mb-4">
+        <b-form-group label="Dimensions">
+          <b-row>
+            <!-- <b-col lg="4" md="4" sm="6">
+              <b-form-group label="Dimensions"> </b-form-group>
+            </b-col> -->
+            <b-col lg="3" md="3" sm="6">
+              <b-form-group label="Length (in)" class="has-float-label">
+                <b-form-input
+                  v-model="length"
+                  class="mb-2"
+                  type="number"
+                  min="0"
+                ></b-form-input>
+              </b-form-group>
+            </b-col>
+            <b-col lg="3" md="3" sm="6">
+              <b-form-group label="Width (in)" class="has-float-label">
+                <b-form-input
+                  v-model="width"
+                  class="mb-2"
+                  type="number"
+                  min="0"
+                ></b-form-input>
+              </b-form-group>
+            </b-col>
+            <b-col lg="3" md="3" sm="6">
+              <b-form-group label="Height (in)" class="has-float-label">
+                <b-form-input
+                  v-model="height"
+                  class="mb-2"
+                  type="number"
+                  min="0"
+                ></b-form-input>
+              </b-form-group>
+            </b-col>
+            <b-col lg="3" md="3" sm="6">
+              <b-form-group label="Weight (lbs)" class="has-float-label">
+                <b-form-input
+                  v-model="weight"
+                  class="mb-2"
+                  type="number"
+                  min="0"
+                ></b-form-input>
+              </b-form-group>
+            </b-col>
+          </b-row>
+        </b-form-group>
+      </b-card>
+
+      <b-button class="float-right" @click="saveDataOnSessionStorage"
+        >Proceed</b-button
+      >
     </b-container>
   </div>
 </template>
@@ -131,6 +183,13 @@ export default {
         phone: "",
         address: "",
         zipcode: "",
+      },
+      dimensions: {
+        length: "",
+        width: "",
+        height: "",
+        weight: "",
+        decided_value: "",
       },
     };
   },
@@ -165,6 +224,7 @@ export default {
       try {
         sessionStorage.setItem("user_from", JSON.stringify(this.from));
         sessionStorage.setItem("user_to", JSON.stringify(this.to));
+        sessionStorage.setItem("dimensions", JSON.stringify(this.dimensions));
 
         this.$router.push("/shipping/step-2");
       } catch (error) {
