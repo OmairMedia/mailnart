@@ -3,8 +3,10 @@
     <b-navbar class="py-2" toggleable="lg" type="dark" variant="light">
       <b-container>
         <b-navbar-brand class="" to="/">
-          <b-img src="/assets/logos/logo.png" fluid></b-img>
+          <b-img src="/assets/logos/logo.png" height="30"></b-img>
         </b-navbar-brand>
+
+        <b-link @click="$router.go(-1)">back</b-link>
       </b-container>
     </b-navbar>
 
@@ -14,7 +16,7 @@
       </div>
 
       <b-card class="user-from mb-4">
-        <b-form-group label="From">
+        <b-form-group label="User From">
           <b-row>
             <b-col lg="4" md="4" sm="6">
               <b-form-input
@@ -41,6 +43,7 @@
               ></b-form-input>
             </b-col>
             <b-col lg="6" md="6" sm="6">
+              <gmap-autocomplete></gmap-autocomplete>
               <b-form-input
                 class="mb-2"
                 v-model="from.address"
@@ -56,13 +59,12 @@
                 placeholder="Zip Code"
               ></b-form-input>
             </b-col>
-            <b-col lg="12" md="12" sm="12"> </b-col>
           </b-row>
         </b-form-group>
       </b-card>
 
       <b-card class="user-to mb-4">
-        <b-form-group label="To">
+        <b-form-group label="User To">
           <b-row>
             <b-col lg="4" md="4" sm="6">
               <b-form-input
@@ -166,8 +168,23 @@
 </template>
 
 <script>
+import Vue from "vue";
+import * as GmapVue from "gmap-vue";
+
+const googleOptions = {
+  load: {
+    key: "AIzaSyBtmA2MsfljS60NA3c_ljiVXC5gvv8TIFg",
+    v: "3.46",
+    libraries: "places",
+  },
+  installComponents: true,
+};
+Vue.use(GmapVue, googleOptions);
+
 export default {
-  components: {},
+  components: {
+    "gmap-autocomplete": GmapVue.components.Autocomplete,
+  },
   data() {
     return {
       from: {

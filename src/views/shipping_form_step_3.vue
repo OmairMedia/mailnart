@@ -17,9 +17,6 @@
         <b-col lg="8" md="8" sm="12">
           <b-card>
             <p class="p-0 m-0">STAGE 1 - SHIPPING</p>
-            <p class="p-0 m-0">
-              Bolton, ON Canada To Amarillo, TX United States
-            </p>
 
             <div class="ship-form">
               <b-form-group label="Pickup Or Drop Off">
@@ -196,10 +193,28 @@ export default {
     try {
       const user_from =
         sessionStorage.getItem("user_from") != null
+          ? JSON.parse(sessionStorage.getItem("user_from"))
+          : null;
+
+      const user_to =
+        sessionStorage.getItem("user_to") != null
+          ? JSON.parse(sessionStorage.getItem("user_to"))
+          : null;
+
+      const dimensions =
+        sessionStorage.getItem("dimensions") != null
+          ? JSON.parse(sessionStorage.getItem("user_to"))
+          : null;
+
+      const from =
+        sessionStorage.getItem("from") != null
           ? JSON.parse(sessionStorage.getItem("from"))
           : null;
 
-      console.log("user_from -> ", user_from);
+      const to =
+        sessionStorage.getItem("to") != null
+          ? JSON.parse(sessionStorage.getItem("to"))
+          : null;
     } catch (error) {
       console.log("Step-2 Getting user from -> ", error);
       //   this.$router.push("/shipping/step-1");
