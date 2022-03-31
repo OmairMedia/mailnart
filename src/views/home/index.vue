@@ -2,37 +2,39 @@
   <home-layout>
     <div :class="{ 'landing-page': true, 'show-mobile-menu': showMobileMenu }">
       <div class="mobile-menu" @click="$event.stopPropagation()">
-        <a @click="scrollTo('#home')" href="javascript:;" class="logo-mobile">
+        <router-link to="/" class="logo-mobile">
           <span></span>
-        </a>
+        </router-link>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a @click="scrollTo('#features')" href="javascript:;">FEATURES</a>
+            <router-link to="/">Create Shipping</router-link>
           </li>
           <li class="nav-item">
-            <a @click="scrollTo('#layouts')" href="javascript:;">LAYOUTS</a>
+            <router-link to="/">Tracking</router-link>
           </li>
           <li class="nav-item">
-            <a @click="scrollTo('#components')" href="javascript:;"
-              >COMPONENTS</a
+            <router-link to="/">FAQ's</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/">About</router-link>
+          </li>
+          <li class="nav-item p-0">
+            <b-dropdown
+              variant="empty"
+              size="sm"
+              right
+              toggle-class="m-0 p-0"
+              menu-class="m-0 p-0"
+              no-caret
             >
-          </li>
-          <li class="nav-item">
-            <a @click="scrollTo('#apps')" href="javascript:;">APPS</a>
-          </li>
-          <li class="nav-item">
-            <a @click="scrollTo('#themes')" href="javascript:;">THEMES</a>
-          </li>
-          <li class="nav-item">
-            <div class="separator"></div>
-          </li>
-          <li class="nav-item text-center">
-            <a
-              class="btn btn-outline-primary btn-sm mobile-menu-cta"
-              target="_blank"
-              :href="buyUrl"
-              >BUY</a
-            >
+              <template slot="button-content">
+                <b-avatar></b-avatar>
+              </template>
+
+              <b-dropdown-item to="/user/login">Login</b-dropdown-item>
+              <b-dropdown-item to="/user/register">SignUp</b-dropdown-item>
+              <!-- <b-dropdown-item to="/user/login">Logout</b-dropdown-item> -->
+            </b-dropdown>
           </li>
         </ul>
       </div>
@@ -49,45 +51,42 @@
                   justify-content-between
                 "
               >
-                <a
-                  class="navbar-logo pull-left"
-                  @click="scrollTo('#home')"
-                  href="javascript:;"
-                >
+                <router-link class="navbar-logo pull-left" to="/">
                   <span class="white"></span>
                   <span class="dark"></span>
-                </a>
+                </router-link>
                 <ul class="navbar-nav d-none d-lg-flex flex-row">
                   <li class="nav-item">
-                    <a @click="scrollTo('#features')" href="javascript:;"
-                      >FEATURES</a
-                    >
+                    <router-link to="/">Create Shipping</router-link>
                   </li>
                   <li class="nav-item">
-                    <a @click="scrollTo('#layouts')" href="javascript:;"
-                      >LAYOUTS</a
-                    >
+                    <router-link to="/">Tracking</router-link>
                   </li>
                   <li class="nav-item">
-                    <a @click="scrollTo('#components')" href="javascript:;"
-                      >COMPONENTS</a
-                    >
+                    <router-link to="/">FAQ's</router-link>
                   </li>
                   <li class="nav-item">
-                    <a @click="scrollTo('#apps')" href="javascript:;">APPS</a>
+                    <router-link to="/">About</router-link>
                   </li>
-                  <li class="nav-item">
-                    <a @click="scrollTo('#themes')" href="javascript:;"
-                      >THEMES</a
+                  <li class="nav-item p-0">
+                    <b-dropdown
+                      variant="empty"
+                      size="sm"
+                      right
+                      toggle-class="m-0 p-0"
+                      menu-class="m-0 p-0"
+                      no-caret
                     >
-                  </li>
-                  <li class="nav-item pl-4">
-                    <a
-                      class="btn btn-outline-semi-light btn-sm pr-4 pl-4"
-                      target="_blank"
-                      :href="buyUrl"
-                      >BUY</a
-                    >
+                      <template slot="button-content">
+                        <b-avatar></b-avatar>
+                      </template>
+
+                      <b-dropdown-item to="/user/login">Login</b-dropdown-item>
+                      <b-dropdown-item to="/user/register"
+                        >SignUp</b-dropdown-item
+                      >
+                      <!-- <b-dropdown-item to="/user/login">Logout</b-dropdown-item> -->
+                    </b-dropdown>
                   </li>
                 </ul>
                 <span
@@ -121,17 +120,13 @@
                 <div class="col-12 col-xl-4 col-lg-5 col-md-6">
                   <div class="home-text">
                     <div class="display-1">
-                      MAGIC IS IN
-                      <br />THE DETAILS
+                      Quickest & Safest
+                      <br />Delivery
                     </div>
                     <p class="white mb-5">
-                      Piaf is the combination of good design, quality code and
-                      attention for details.
-                      <br />
-                      <br />We used same design language for components,
-                      layouts, apps and other parts of the template.
-                      <br />
-                      <br />Hope you enjoy it!
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Reiciendis modi quod neque molestiae praesentium numquam
+                      cum velit officiis quis qui.
                     </p>
                     <router-link
                       class="btn btn-light btn-xl mr-2 mb-2"
